@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+input:checked + span {
+  color: rgb(162, 162, 162);
+  text-decoration: line-through;
+}
