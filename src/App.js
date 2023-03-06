@@ -1,6 +1,8 @@
 import React from "react";
+import TodoList from "./components/TodoList";
 
 import "./App.css";
+import InputField from "./components/InputField";
 
 function App() {
   const [todoList, setTodoList] = React.useState([]);
@@ -23,7 +25,7 @@ function App() {
   const toggleTodoCompleted = (idx) => {
     setTodoList(
       todoList.map((item) => {
-        if (item.id !== idx) return todoList;
+        if (item.id !== idx) return item;
         return {
           ...item,
           completed: !item.completed,
@@ -38,29 +40,13 @@ function App() {
 
   return (
     <div className="App">
-      <label>
-        <input value={text} onChange={(e) => setText(e.target.value)} />
-        <button onClick={addTodo}>Add Todo</button>
-      </label>
+      <InputField text={text} setText={setText} addTodo={addTodo} />
 
-      <ul>
-        {todoList.map((item) => (
-          <li key={item.id}>
-            <input
-              type="checkbox"
-              checked={item.completed}
-              onChange={() => toggleTodoCompleted(item.id)}
-            />
-            <span>{item.text}</span>
-            <span
-              onClick={() => removeTodo(item.id)}
-              style={{ color: "red", cursor: "pointer" }}
-            >
-              &times;
-            </span>
-          </li>
-        ))}
-      </ul>
+      <TodoList
+        todoList={todoList}
+        toggleTodoCompleted={toggleTodoCompleted}
+        removeTodo={removeTodo}
+      />
     </div>
   );
 }
