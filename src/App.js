@@ -9,42 +9,12 @@ import "./App.css";
 
 function App() {
   const [text, setText] = React.useState("");
-
   const dispatch = useDispatch();
 
-  // const addTodo = () => {
-  //   if (text.trim().length) {
-  //     setTodoList([
-  //       ...todoList,
-  //       {
-  //         id: new Date().toISOString(),
-  //         text,
-  //         completed: false,
-  //       },
-  //     ]);
-  //     setText("");
-  //   }
-  // };
   const addTask = () => {
     dispatch(addTodo({ text }));
     setText("");
   };
-
-  const toggleTodoCompleted = (idx) => {
-    // setTodoList(
-    //   todoList.map((item) => {
-    //     if (item.id !== idx) return item;
-    //     return {
-    //       ...item,
-    //       completed: !item.completed,
-    //     };
-    //   })
-    // );
-  };
-
-  // const removeTodo = (id) => {
-  //   // setTodoList(todoList.filter((item) => item.id !== id));
-  // };
 
   return (
     <div className="App">
