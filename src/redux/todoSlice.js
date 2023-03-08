@@ -8,16 +8,17 @@ const todoSlice = createSlice({
   reducers: {
     // toolkit дает возможность не заморачиваться по поводу имутабельности
     addTodo(state, action) {
-      console.log(state);
-      console.log(action);
-
       state.todos.push({
         id: new Date().toISOString(),
-        text: action.payload,
+        text: action.payload.text,
         completed: false,
       });
     },
-    removeTodo(state, action) {},
+    removeTodo(state, action) {
+      // setTodoList(todoList.filter((item) => item.id !== id));
+      state.todos = state.todos.filter((item) => item.id !== action.payload.id);
+    },
+
     toggleTodoCompleted(state, action) {},
   },
 });

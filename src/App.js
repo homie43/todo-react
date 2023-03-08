@@ -25,8 +25,10 @@ function App() {
   //     setText("");
   //   }
   // };
-
-  const addTask = () => dispatch(addTodo(text));
+  const addTask = () => {
+    dispatch(addTodo({ text }));
+    setText("");
+  };
 
   const toggleTodoCompleted = (idx) => {
     // setTodoList(
@@ -40,9 +42,9 @@ function App() {
     // );
   };
 
-  const removeTodo = (id) => {
-    // setTodoList(todoList.filter((item) => item.id !== id));
-  };
+  // const removeTodo = (id) => {
+  //   // setTodoList(todoList.filter((item) => item.id !== id));
+  // };
 
   return (
     <div className="App">
