@@ -1,10 +1,10 @@
 import React from "react";
 
-const InputField = ({ text, setText, addTodo }) => {
+const InputField = ({ text, setText, handleSubmit }) => {
   return (
     <label>
       <input value={text} onChange={(e) => setText(e.target.value)} />
-      <button onClick={addTodo}>Add Todo</button>
+      <button onClick={handleSubmit}>Add Todo</button>
     </label>
   );
 };

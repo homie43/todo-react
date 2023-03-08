@@ -13,7 +13,7 @@ const todoSlice = createSlice({
 
       state.todos.push({
         id: new Date().toISOString(),
-        text: action.payload.text,
+        text: action.payload,
         completed: false,
       });
     },
@@ -23,3 +23,5 @@ const todoSlice = createSlice({
 });
 
 export const { addTodo, removeTodo, toggleTodoCompleted } = todoSlice.actions;
+
+export default todoSlice.reducer;
