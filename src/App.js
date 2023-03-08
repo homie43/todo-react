@@ -13,6 +13,7 @@ function App() {
 
   const addTask = () => {
     dispatch(addTodo({ text }));
+
     setText("");
   };
 
